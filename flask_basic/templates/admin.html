@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <h1>Hello admin</h1>
+    <a href="{{url_for('static',filename='img1.jpg')}}">image</a>
+
+    <div class="container">
+      <div>แบบฟรอมติดต่อแอดมิน</div>
+      <form action="{{url_for('sigupfrom')}}" method="get">
+        <div class="form-group">
+          <label for="">ผู้ติดต่อ</label>
+          <input type="text" name="fname" class="form-control">
+        </div>
+        <br>
+        <div class="forom-group">
+          <label for="">รายละเอียด</label>
+          <textarea name="description" id="" cols="100" rows="10" class="form-control"></textarea>
+        </div>
+        <br>
+        <input type="submit" name="" id="" value="sent" class="btn btn-success">
+      </form>
+    </div>
+
+{% endblock %}

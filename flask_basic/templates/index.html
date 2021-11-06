@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1>Hello Home</h1>
+<div class="container my-2">
+    <form action="" method="post" class="form-control">
+        {{form.hidden_tag()}}
+        {{form.name.label}}
+        {{form.name()}}<br>
+        <br>
+        {{form.skill.label}}
+        {{form.skill()}}
+
+        <br><br>
+        {{form.gender.label}}
+        {{form.gender()}}
+        <br>
+        {{form.address.label}}
+        <br>
+        {{form.address()}}
+        <br>
+        {{form.isAccept()}}{{form.isAccept.label}}
+        <br>
+        {{form.submit()}}
+    </form>
+    <hr>
+    {% if session['name'] %}
+        <h4 >name : <label class="bg-success">{{session['name']}} </label></h4>
+        <h4 > ยอมรับเงื่อนไข <label class="bg-info">{{session['isAccept']}} </label></h4>
+        <h4 > เพศ <label class="bg-danger">{{session['gender']}} </label></h4>
+        <h4 > ความสามารถ <label class="bg-warning">{{session['skill']}} </label></h4>
+        <h4 >  ที่อยู่ <label class="bg-secondary">{{session['address']}} </label></h4>
+    {% else %}
+        ไม่พบข้อมุล
+
+    {% endif %}
+    
+</div>
+
+
+
+
+{% endblock %}

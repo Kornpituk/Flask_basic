@@ -1,0 +1,47 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "layout.html" %}
+
+{% block title %}
+    ยินดีต้อมรับสู่ Bootstrap Flask
+{% endblock %}
+
+{% block content %}
+
+<h1>Hello Home bootstrap</h1>
+<div class="container my-2">
+
+    {% for message in get_flashed_messages() %}
+
+
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{message}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+    {% endfor %}
+    {{wtf.quick_form(form)}}
+    <hr>
+    {% if session['name'] %}
+        <h4 >name : <label class="bg-success">{{session['name']}} </label></h4>
+        <h4 > ยอมรับเงื่อนไข <label class="bg-info">{{session['isAccept']}} </label></h4>
+        <h4 > เพศ <label class="bg-danger">{{session['gender']}} </label></h4>
+        <h4 > ความสามารถ <label class="bg-warning">{{session['skill']}} </label></h4>
+        <h4 >  ที่อยู่ <label class="bg-secondary">{{session['address']}} </label></h4>
+    {% else %}
+        ไม่พบข้อมุล
+
+    {% endif %}
+    
+</div>
+
+<script>
+    const btn = document.querySelector('.btn.btn-default');
+    btn.classList.remove('btn-default');
+    btn.classList.add('btn-info');
+    console.log(btn);
+</script>
+
+
+
+
+{% endblock %}
